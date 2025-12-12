@@ -1,0 +1,14 @@
+{
+  "plugins": ["prettier-plugin-svelte"],
+  "tabWidth": 2,
+  "semi": false,
+  "printWidth": 80,
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ]
+}
