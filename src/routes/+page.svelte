@@ -30,13 +30,20 @@
   })
 </script>
 
-<div class="container">
-  <div class="img-container flip-in-left">
+<nav>
+  <a href="#faq">faq</a>
+  <a href="#rsvp">rsvp</a>
+  <a href="#top">jess &lt3 john</a>
+  <a href="#registry">registry</a>
+  <a href="#fun">fun</a>
+</nav>
+
+<div class="container" id="top">
+  <p class="left">hey! we are getting married :)</p>
+  <div class="img-container flip-in-right">
     <img src="{base}/photo1.jpg" />
   </div>
-</div>
-<div class="container">
-  <div class="img-container flip-in-right">
+  <div class="img-container flip-in-left">
     <img src="{base}/photo2.jpg" />
   </div>
 </div>
@@ -47,12 +54,26 @@
     padding: 0;
     box-sizing: border-box;
   }
+  nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  nav a {
+    display: flex;
+  }
 
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
   :global(body) {
     font-family: "Cartograph-CF", sans-serif;
-    font-size: 2em;
-    align-items: center;
-    justify-content: center;
     background: #f5f5f5;
     margin: 0;
     padding: 0;
@@ -60,7 +81,7 @@
   }
 
   .img-container {
-    width: 30%;
+    height: 50%;
     aspect-ratio: 0.75;
     position: relative;
   }
@@ -78,6 +99,7 @@
     height: 100%;
     width: auto;
     object-fit: cover;
+    z-index: -1;
   }
 
   .container {
