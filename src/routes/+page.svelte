@@ -60,6 +60,7 @@
     justify-content: space-between;
     padding-left: 5%;
     padding-right: 5%;
+    margin-bottom: 5%;
   }
   nav a {
     display: flex;
@@ -81,18 +82,20 @@
   }
 
   .img-container {
-    height: 50%;
+    height: 40%;
     aspect-ratio: 0.75;
-    position: relative;
+    display: flex;
+    position: absolute;
   }
 
   .flip-in-left {
-    left: -30%;
+    align-self: flex-end;
+    left: -60%;
   }
 
   .flip-in-right {
-    float: right;
-    right: -30%;
+    align-self: flex-start;
+    right: -60%;
   }
 
   .img-container img {
@@ -100,10 +103,17 @@
     width: auto;
     object-fit: cover;
     z-index: -1;
+    display: flex;
   }
 
   .container {
+    display: flex;
     width: 100vw;
     height: 100vh;
+  }
+  .container p {
+    width: 40%;
+    padding-left: 5%;
+    padding-top: 10%;
   }
 </style>
