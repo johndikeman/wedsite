@@ -39,12 +39,23 @@
 </nav>
 
 <div class="container" id="top">
-  <p class="left">hey! we are getting married :)</p>
-  <div class="img-container flip-in-right">
-    <img src="{base}/photo1.jpg" />
+  <div class="lhalf">
+    <p class="left">hey! we are getting married :)</p>
   </div>
-  <div class="img-container flip-in-left">
-    <img src="{base}/photo2.jpg" />
+  <div class="rhalf">
+    <div class="img-container flip-in-right">
+      <img src="{base}/photo1.jpg" />
+    </div>
+  </div>
+</div>
+<div class="container" id="top">
+  <div class="lhalf">
+    <div class="img-container flip-in-left">
+      <img src="{base}/photo2.jpg" />
+    </div>
+  </div>
+  <div class="rhalf">
+    <p class="right">what does text look like over here?</p>
   </div>
 </div>
 
@@ -66,6 +77,11 @@
     display: flex;
   }
 
+  .lhalf,
+  .rhalf {
+    flex-shrink: 0;
+    display: flex;
+  }
   .left {
     float: left;
   }
@@ -85,16 +101,14 @@
     height: 40%;
     aspect-ratio: 0.75;
     display: flex;
-    position: absolute;
+    position: relative;
   }
 
   .flip-in-left {
-    align-self: flex-end;
     left: -60%;
   }
 
   .flip-in-right {
-    align-self: flex-start;
     right: -60%;
   }
 
@@ -103,13 +117,13 @@
     width: auto;
     object-fit: cover;
     z-index: -1;
-    display: flex;
   }
 
   .container {
     display: flex;
+    flex-wrap: nowrap;
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
   }
   .container p {
     width: 40%;
