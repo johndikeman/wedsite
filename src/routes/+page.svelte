@@ -8,6 +8,8 @@
   import { TextPlugin } from "gsap/TextPlugin"
   import { onMount } from "svelte"
 
+  import RsvpForm from "$lib/RsvpForm.svelte"
+
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, TextPlugin)
 
   onMount(() => {
@@ -113,6 +115,50 @@
         >Wildflower Event Center</a
       >
     </p>
+  </div>
+</div>
+
+<div id="rsvp">
+  <p>we hope you can join us!</p>
+  <RsvpForm />
+</div>
+
+<div class="container" id="registry">
+  <div class="lhalf">
+    <p class="right">
+      if you want to <a href="">buy us something...</a>
+    </p>
+  </div>
+  <div class="rhalf">
+    <div class="img-container flip-in-right">
+      <img src="{base}/photo1.jpg" />
+    </div>
+  </div>
+</div>
+
+<div class="container" id="fun">
+  <div class="lhalf">
+    <div class="img-container flip-in-left">
+      <img src="{base}/photo2.jpg" />
+    </div>
+  </div>
+  <div class="rhalf">
+    <p class="left">
+      or <a href="">request a song!</a>
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="lhalf">
+    <p class="right">
+      or <a href="">see a cat pic!</a>
+    </p>
+  </div>
+  <div class="rhalf">
+    <div class="img-container flip-in-right">
+      <img src="{base}/photo1.jpg" />
+    </div>
   </div>
 </div>
 
@@ -352,6 +398,10 @@
     float: left;
   }
 
+  #rsvp p {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
   .img-container img {
     height: 100%;
     width: auto;
