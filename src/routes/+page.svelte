@@ -60,6 +60,164 @@
 </div>
 
 <style>
+  /* Regular */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-Regular.otf") format("opentype");
+    font-weight: 400; /* Standard weight for Regular */
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Regular Italic */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-RegularItalic.otf")
+      format("opentype");
+    font-weight: 400;
+    font-style: italic; /* Maps this file to the 'italic' style */
+    font-display: swap;
+  }
+
+  /* Bold */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-Bold.otf") format("opentype");
+    font-weight: 700; /* Standard weight for Bold */
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Bold Italic */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* Heavy (often weight 900 or 950) */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-Heavy.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Thin */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-Thin.otf") format("opentype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Thin Italic */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-ThinItalic.otf") format("opentype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* Extra Light */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-ExtraLight.otf") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Extra Light Italic */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-ExtraLightItalic.otf")
+      format("opentype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* Regular */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-Regular.otf") format("opentype");
+    font-weight: 400; /* 'normal' also works here */
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Regular Italic */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-RegularItalic.otf")
+      format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* Demi Bold (Semi Bold) */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-DemiBold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Demi Bold Italic (Semi Bold Italic) */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-DemiBoldItalic.otf")
+      format("opentype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* Bold */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-Bold.otf") format("opentype");
+    font-weight: 700; /* 'bold' also works here */
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Bold Italic */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* Extra Bold */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-ExtraBold.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Extra Bold Italic */
+  @font-face {
+    font-family: "Cartograph CF";
+    src: url("fonts/Cartograph/CartographCF-ExtraBoldItalic.otf")
+      format("opentype");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -72,6 +230,7 @@
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 5%;
+    font-weight: 200;
   }
   nav a {
     display: flex;
@@ -91,7 +250,9 @@
     float: right;
   }
   :global(body) {
-    font-family: "Cartograph-CF", sans-serif;
+    font-family: "Cartograph CF", serif;
+    font-style: italic;
+    font-weight: 600;
     background: #f5f5f5;
     margin: 0;
     padding: 0;
