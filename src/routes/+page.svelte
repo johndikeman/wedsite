@@ -27,15 +27,42 @@
         duration: 1,
       })
       .play()
+
+    // navbar "active" styling
+    const links = document.querySelectorAll('a[href^="#"]')
+
+    // Add click handler to set active class
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        // Remove active from all links
+        links.forEach((l) => l.classList.remove("active"))
+        // Add active to clicked link
+        link.classList.add("active")
+      })
+    })
   })
+
+  // navbar section stuff
+  let activeSection = "top"
+  const sections = {
+    faq: "faq",
+    rsvp: "rsvp",
+    top: "jess <3 john",
+    registry: "registry",
+    fun: "fun",
+  }
 </script>
 
 <nav>
-  <a href="#faq">faq</a>
-  <a href="#rsvp">rsvp</a>
-  <a href="#top">jess &lt3 john</a>
-  <a href="#registry">registry</a>
-  <a href="#fun">fun</a>
+  {#each Object.entries(sections) as [sectionId, sectionText]}
+    <a
+      href="#{sectionId}"
+      class:active={activeSection === sectionId}
+      on:click={() => (activeSection = sectionId)}
+    >
+      {sectionText}
+    </a>
+  {/each}
 </nav>
 
 <div class="container" id="top">
@@ -217,7 +244,19 @@
     font-style: italic;
     font-display: swap;
   }
+  a {
+    color: inherit; /* inherit text color from parent */
+    text-decoration: none; /* remove default underline */
+    cursor: pointer;
+  }
 
+  a:hover {
+    text-decoration: underline; /* optional: underline on hover */
+  }
+
+  a.active {
+    text-decoration: underline;
+  }
   * {
     margin: 0;
     padding: 0;
@@ -230,6 +269,7 @@
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 5%;
+    padding-top: 5%;
     font-weight: 200;
   }
   nav a {
@@ -257,6 +297,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #ffe9ec;
+    color: #3c1419;
   }
 
   .img-container {
