@@ -30,17 +30,10 @@
       })
       .play()
 
-    // navbar "active" styling
-    const links = document.querySelectorAll('a[href^="#"]')
-
-    // Add click handler to set active class
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        // Remove active from all links
-        links.forEach((l) => l.classList.remove("active"))
-        // Add active to clicked link
-        link.classList.add("active")
-      })
+    ScrollSmoother.create({
+      smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+      effects: true, // looks for data-speed and data-lag attributes on elements
+      smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
     })
   })
 
@@ -55,109 +48,113 @@
   }
 </script>
 
-<nav>
-  {#each Object.entries(sections) as [sectionId, sectionText]}
-    <a
-      href="#{sectionId}"
-      class:active={activeSection === sectionId}
-      on:click={() => (activeSection = sectionId)}
-    >
-      {sectionText}
-    </a>
-  {/each}
-</nav>
-
-<div class="container" id="top">
-  <div class="lhalf">
-    <p class="right">hey! we are getting married :)</p>
-  </div>
-  <div class="rhalf">
-    <div class="img-container flip-in-right">
-      <img src="{base}/photo1.jpg" />
+<div id="smooth-wrapper">
+  <div id="smooth-content">
+    <nav>
+      {#each Object.entries(sections) as [sectionId, sectionText]}
+        <a
+          href="#{sectionId}"
+          class:active={activeSection === sectionId}
+          on:click={() => (activeSection = sectionId)}
+        >
+          {sectionText}
+        </a>
+      {/each}
+    </nav>
+    <!--- ALL YOUR CONTENT HERE --->
+    <div class="container" id="top">
+      <div class="lhalf">
+        <p class="right">hey! we are getting married :)</p>
+      </div>
+      <div class="rhalf">
+        <div class="img-container flip-in-right">
+          <img src="{base}/photo1.jpg" />
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="container">
-  <div class="lhalf">
-    <div class="img-container flip-in-left">
-      <img src="{base}/photo2.jpg" />
+    <div class="container">
+      <div class="lhalf">
+        <div class="img-container flip-in-left">
+          <img src="{base}/photo2.jpg" />
+        </div>
+      </div>
+      <div class="rhalf"></div>
     </div>
-  </div>
-  <div class="rhalf"></div>
-</div>
 
-<div class="container" id="faq">
-  <div class="lhalf">
-    <p class="right">
-      Ceremony is at <a
-        href="https://www.google.com/maps/dir//14711+Ranch+Rd+12,+Wimberley,+TX+78676/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5dd9037f83b3:0xb650420cc3f03760!2m2!1d-98.1032852!2d30.0062927?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-        >St. Mary's Catholic Church, Wimberley</a
-      > at 2pm
-    </p>
-  </div>
-  <div class="rhalf">
-    <div class="img-container flip-in-right">
-      <img src="{base}/photo1.jpg" />
+    <div class="container" id="faq">
+      <div class="lhalf">
+        <p class="right">
+          Ceremony is at <a
+            href="https://www.google.com/maps/dir//14711+Ranch+Rd+12,+Wimberley,+TX+78676/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5dd9037f83b3:0xb650420cc3f03760!2m2!1d-98.1032852!2d30.0062927?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+            >St. Mary's Catholic Church, Wimberley</a
+          > at 2pm
+        </p>
+      </div>
+      <div class="rhalf">
+        <div class="img-container flip-in-right">
+          <img src="{base}/photo1.jpg" />
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="container">
-  <div class="lhalf">
-    <div class="img-container flip-in-left">
-      <img src="{base}/photo2.jpg" />
+    <div class="container">
+      <div class="lhalf">
+        <div class="img-container flip-in-left">
+          <img src="{base}/photo2.jpg" />
+        </div>
+      </div>
+      <div class="rhalf">
+        <p class="left">
+          followed by time at the <a
+            href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+            >Wildflower Event Center</a
+          >
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="rhalf">
-    <p class="left">
-      followed by time at the <a
-        href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-        >Wildflower Event Center</a
-      >
-    </p>
-  </div>
-</div>
 
-<div id="rsvp">
-  <p>we hope you can join us!</p>
-  <RsvpForm />
-</div>
-
-<div class="container" id="registry">
-  <div class="lhalf">
-    <p class="right">
-      if you want to <a href="">buy us something...</a>
-    </p>
-  </div>
-  <div class="rhalf">
-    <div class="img-container flip-in-right">
-      <img src="{base}/photo1.jpg" />
+    <div id="rsvp">
+      <p>we hope you can join us!</p>
+      <RsvpForm />
     </div>
-  </div>
-</div>
 
-<div class="container" id="fun">
-  <div class="lhalf">
-    <div class="img-container flip-in-left">
-      <img src="{base}/photo2.jpg" />
+    <div class="container" id="registry">
+      <div class="lhalf">
+        <p class="right">
+          if you want to <a href="">buy us something...</a>
+        </p>
+      </div>
+      <div class="rhalf">
+        <div class="img-container flip-in-right">
+          <img src="{base}/photo1.jpg" />
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="rhalf">
-    <p class="left">
-      or <a href="">request a song!</a>
-    </p>
-  </div>
-</div>
 
-<div class="container">
-  <div class="lhalf">
-    <p class="right">
-      or <a href="">see a cat pic!</a>
-    </p>
-  </div>
-  <div class="rhalf">
-    <div class="img-container flip-in-right">
-      <img src="{base}/photo1.jpg" />
+    <div class="container" id="fun">
+      <div class="lhalf">
+        <div class="img-container flip-in-left">
+          <img src="{base}/photo2.jpg" />
+        </div>
+      </div>
+      <div class="rhalf">
+        <p class="left">
+          or <a href="">request a song!</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="lhalf">
+        <p class="right">
+          or <a href="">see a cat pic!</a>
+        </p>
+      </div>
+      <div class="rhalf">
+        <div class="img-container flip-in-right">
+          <img src="{base}/photo1.jpg" />
+        </div>
+      </div>
     </div>
   </div>
 </div>
