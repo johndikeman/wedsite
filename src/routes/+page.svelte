@@ -75,14 +75,44 @@
     </div>
   </div>
 </div>
-<div class="container" id="top">
+<div class="container">
+  <div class="lhalf">
+    <div class="img-container flip-in-left">
+      <img src="{base}/photo2.jpg" />
+    </div>
+  </div>
+  <div class="rhalf"></div>
+</div>
+
+<div class="container" id="faq">
+  <div class="lhalf">
+    <p class="right">
+      Ceremony is at <a
+        href="https://www.google.com/maps/dir//14711+Ranch+Rd+12,+Wimberley,+TX+78676/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5dd9037f83b3:0xb650420cc3f03760!2m2!1d-98.1032852!2d30.0062927?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+        >St. Mary's Catholic Church, Wimberley</a
+      > at 2pm
+    </p>
+  </div>
+  <div class="rhalf">
+    <div class="img-container flip-in-right">
+      <img src="{base}/photo1.jpg" />
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="lhalf">
     <div class="img-container flip-in-left">
       <img src="{base}/photo2.jpg" />
     </div>
   </div>
   <div class="rhalf">
-    <p class="left">what does text look like over here?</p>
+    <p class="left">
+      followed by time at the <a
+        href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+        >Wildflower Event Center</a
+      >
+    </p>
   </div>
 </div>
 
@@ -244,10 +274,13 @@
     font-style: italic;
     font-display: swap;
   }
+
   a {
     color: inherit; /* inherit text color from parent */
-    text-decoration: none; /* remove default underline */
     cursor: pointer;
+  }
+  nav a {
+    text-decoration: none; /* remove default underline */
   }
 
   a:hover {
@@ -257,6 +290,7 @@
   a.active {
     text-decoration: underline;
   }
+
   * {
     margin: 0;
     padding: 0;
