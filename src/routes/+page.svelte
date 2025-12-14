@@ -13,7 +13,7 @@
   onMount(() => {
     gsap
       .to(".flip-in-left", {
-        rotation: 15,
+        rotation: 10,
         left: "0%",
         ease: "power3.out",
         duration: 1,
@@ -21,7 +21,7 @@
       .play()
     gsap
       .to(".flip-in-right", {
-        rotation: -15,
+        rotation: -10,
         right: "0%",
         ease: "power3.out",
         duration: 1,
@@ -40,7 +40,7 @@
 
 <div class="container" id="top">
   <div class="lhalf">
-    <p class="left">hey! we are getting married :)</p>
+    <p class="right">hey! we are getting married :)</p>
   </div>
   <div class="rhalf">
     <div class="img-container flip-in-right">
@@ -55,7 +55,7 @@
     </div>
   </div>
   <div class="rhalf">
-    <p class="right">what does text look like over here?</p>
+    <p class="left">what does text look like over here?</p>
   </div>
 </div>
 
@@ -79,9 +79,10 @@
 
   .lhalf,
   .rhalf {
-    flex-shrink: 0;
-    display: flex;
+    flex: 1;
+    align-content: center;
   }
+
   .left {
     float: left;
   }
@@ -98,18 +99,20 @@
   }
 
   .img-container {
-    height: 40%;
+    height: 50%;
     aspect-ratio: 0.75;
     display: flex;
     position: relative;
   }
 
   .flip-in-left {
-    left: -60%;
+    left: -100%;
+    float: right;
   }
 
   .flip-in-right {
-    right: -60%;
+    right: -100%;
+    float: left;
   }
 
   .img-container img {
@@ -126,8 +129,8 @@
     height: 50vh;
   }
   .container p {
-    width: 40%;
     padding-left: 5%;
+    padding-right: 5%;
     padding-top: 10%;
   }
 </style>
