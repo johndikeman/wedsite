@@ -11,32 +11,47 @@
   import RsvpForm from "$lib/RsvpForm.svelte"
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, TextPlugin)
+  let scrollContainer
 
   onMount(() => {
-    gsap
-      .to(".flip-in-left", {
-        rotation: 10,
-        left: "0%",
-        ease: "power3.out",
-        duration: 1,
+    const ctx = gsap.context((self) => {
+      const fils = self.selector(".flip-in-left")
+      fils.forEach((fil) => {
+        gsap.to(fil, {
+          rotation: 10,
+          left: "0%",
+          ease: "power3.out",
+          duration: 1,
+          scrollTrigger: {
+            trigger: fil,
+            start: "bottom 90%",
+            toggleActions: "play reverse play reverse",
+          },
+        })
       })
-      .play()
-    gsap
-      .to(".flip-in-right", {
-        rotation: -10,
-        right: "0%",
-        ease: "power3.out",
-        duration: 1,
-      })
-      .play()
 
-    ScrollSmoother.create({
-      smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-      effects: true, // looks for data-speed and data-lag attributes on elements
-      smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
-    })
+      const firs = self.selector(".flip-in-right")
+      firs.forEach((fir) => {
+        gsap.to(fir, {
+          rotation: -10,
+          left: "0%",
+          ease: "power3.out",
+          duration: 1,
+          scrollTrigger: {
+            trigger: fir,
+            start: "bottom 90%",
+            toggleActions: "play reverse play reverse",
+          },
+        })
+      })
+
+      ScrollSmoother.create({
+        smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+        effects: true, // looks for data-speed and data-lag attributes on elements
+        smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+      })
+    }, scrollContainer)
   })
-
   // navbar section stuff
   let activeSection = "top"
   const sections = {
@@ -49,7 +64,7 @@
 </script>
 
 <div id="smooth-wrapper">
-  <div id="smooth-content">
+  <div id="smooth-content" bind:this={scrollContainer}>
     <nav>
       {#each Object.entries(sections) as [sectionId, sectionText]}
         <a
