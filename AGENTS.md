@@ -2,14 +2,17 @@
 
 ## Project Overview
 
-This is a SvelteKit static website deployed to GitHub Pages. The project uses modern web technologies with GSAP animations.
+This is a SvelteKit static website deployed to GitHub Pages. The project uses modern web technologies with GSAP animations, Nix flakes for development environment, and Supabase for backend services including database and edge functions.
 
 ## Build and Development Commands
 
 ### Development
 
 ```bash
-npm run dev          # Start development server
+npm run dev          # Start development server with local Supabase
+nix develop          # Enter development shell with Supabase tools
+supabase start       # Start local Supabase services (database, auth, edge functions)
+supabase status      # Check local development status
 ```
 
 ### Build and Deployment
@@ -18,6 +21,24 @@ npm run dev          # Start development server
 npm run build        # Build for production
 npm run preview      # Build and preview locally
 npm run deploy       # Deploy to GitHub Pages (uses gh-pages)
+```
+
+### Supabase Operations
+
+```bash
+supabase db reset    # Reset database and run seed data
+supabase db push     # Push database schema changes
+supabase functions deploy rsvp  # Deploy edge function
+supabase gen types typescript --local > src/lib/database.types.ts  # Generate TypeScript types
+```
+
+### Nix Development Environment
+
+The project uses Nix flakes for reproducible development environments:
+
+```bash
+nix develop          # Enter development shell
+nix flake show       # Show available outputs
 ```
 
 ### Testing
@@ -93,6 +114,9 @@ import { base } from "$app/paths"
 - **Components**: PascalCase for Svelte components
 - **Variables/Functions**: camelCase
 - **Constants**: UPPER_SNAKE_CASE for true constants
+- **Database Tables**: snake_case (e.g., `rsvp_responses`)
+- **Edge Functions**: kebab-case (e.g., `submit-rsvp`)
+- **Environment Variables**: UPPER*SNAKE_CASE with `VITE*` prefix for client-side variables
 
 ### GSAP Animation Patterns
 
@@ -107,6 +131,9 @@ import { base } from "$app/paths"
 - Form validation with clear user feedback
 - Graceful degradation if GSAP fails
 - Use try-catch for async operations
+- Supabase operations should include error handling for network failures
+- Edge functions should validate JWT tokens for authenticated endpoints
+- Use proper HTTP status codes in API responses (200, 400, 401, 500)
 
 ### Project Structure
 
@@ -117,8 +144,21 @@ src/
 │   ├── +page.svelte  # Home page
 │   └── about/        # About page
 ├── lib/              # Shared components
-│   └── RsvpForm.svelte
+│   ├── RsvpForm.svelte           # Client-side RSVP form
+│   └── database.types.ts         # Supabase database types (generated)
 └── global.d.ts       # TypeScript definitions
+
+supabase/
+├── config.toml       # Local development configuration
+├── seed.sql          # Database seed data
+├── functions/        # Edge functions
+│   └── rsvp/         # RSVP edge function
+│       ├── index.ts  # Function handler
+│       └── deno.json # Deno configuration
+└── migrations/       # Database migrations
+
+flake.nix            # Nix development shell
+flake.lock           # Nix dependencies lock
 ```
 
 ### Routing and Paths
@@ -151,12 +191,43 @@ src/
 5. **Forms**: Client-side validation with clear error messages
 6. **Images**: Optimize and use appropriate formats
 
+### Supabase Integration
+
+**Database Setup**:
+
+- Uses PostgreSQL with Row Level Security (RLS)
+- Local development with `supabase start`
+- Edge functions for serverless API endpoints
+
+**RSVP Edge Function**:
+
+- Located at `supabase/functions/rsvp/index.ts`
+- Handles RSVP form submissions
+- JWT verification enabled (`verify_jwt = true` in config)
+- Generated TypeScript types available via `supabase gen types`
+
+**Environment Variables**:
+
+- Store Supabase secrets in `.env` file (not committed)
+- Use `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` for client-side access
+- Local development uses `http://127.0.0.1:54321` for API
+
+### Nix Development Environment
+
+The project includes a Nix flake providing:
+
+- `supabase-cli` for local development
+- `podman` for containerized services
+- `lazygit` for Git operations
+
 ### Recent Changes (from commit history)
 
 - GSAP smooth scrolling implementation
 - Scroll trigger animations
 - FAQ content addition
 - Base path configuration for GitHub Pages
+- Nix flakes setup for reproducible development
+- Supabase integration with edge functions
 
 ### Warnings
 
@@ -164,3 +235,7 @@ src/
 - No linting beyond Prettier formatting
 - Check GSAP registration order (ScrollSmoother requires ScrollTrigger)
 - Verify production base path matches repository name
+- Edge functions require JWT verification for production use
+- Database RLS policies should be properly configured before production
+- Environment variables must be set for Supabase integration
+- Nix development environment requires system configuration (Podman, user session)
