@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte"
+
   let formData = {
     name: "",
     attending: "",
@@ -6,7 +8,17 @@
     kids: 0,
   }
 
-  function handleSubmit() {
+  let submitting = false
+  let submitSuccess = false
+  let submitError = ""
+  let supabaseUrl = ""
+
+  onMount(async () => {
+    // Get Supabase URL from environment variable
+    supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "http://127.0.0.1:54321"
+  })
+
+  async function handleSubmit() {
     if (!formData.name || !formData.attending) {
       alert("Please fill in all required fields")
       return
@@ -21,8 +33,51 @@
       return
     }
 
-    console.log("Form submitted:", formData)
-    alert(`Thank you ${formData.name}! Your RSVP has been received.`)
+    submitting = true
+    submitError = ""
+    submitSuccess = false
+
+    try {
+      const response = await fetch(`${supabaseUrl}/functions/v1/rsvp`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer " +
+            (import.meta.env.VITE_SUPABASE_ANON_KEY ||
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0"),
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          attending: formData.attending,
+          adults: formData.adults,
+          kids: formData.kids,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (response.ok && result.success) {
+        submitSuccess = true
+        console.log("RSVP saved:", result)
+
+        // Reset form after successful submission
+        formData = {
+          name: "",
+          attending: "",
+          adults: 0,
+          kids: 0,
+        }
+      } else {
+        submitError = result.error || "Failed to submit RSVP"
+        console.error("RSVP error:", result)
+      }
+    } catch (error) {
+      submitError = "Network error: " + error.message
+      console.error("Submit error:", error)
+    } finally {
+      submitting = false
+    }
   }
 </script>
 
@@ -64,7 +119,21 @@
       </div>
     {/if}
 
-    <button on:click={handleSubmit}>Submit RSVP</button>
+    <button on:click={handleSubmit} disabled={submitting}>
+      {submitting ? "Submitting..." : "Submit RSVP"}
+    </button>
+
+    {#if submitSuccess}
+      <div class="success-message">
+        ✓ Thank you! Your RSVP has been received.
+      </div>
+    {/if}
+
+    {#if submitError}
+      <div class="error-message">
+        ⚠ {submitError}
+      </div>
+    {/if}
   </div>
 </div>
 
@@ -139,11 +208,35 @@
     transition: background 0.2s;
   }
 
-  button:hover {
+  button:hover:not(:disabled) {
     background: #357abd;
   }
 
-  button:active {
+  button:active:not(:disabled) {
     transform: translateY(1px);
+  }
+
+  button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: 1px solid #c3e6cb;
+    font-size: 0.9rem;
+  }
+
+  .error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+    font-size: 0.9rem;
   }
 </style>
