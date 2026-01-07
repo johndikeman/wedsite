@@ -108,7 +108,7 @@
       </div>
       <div class="rhalf">
         <div class="img-container flip-in-right">
-          <Image src="photo1.jpg" alt="St. Mary's Catholic Church exterior" />
+          <Image src="./photo1.jpg" alt="St. Mary's Catholic Church exterior" />
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@
     <div class="container">
       <div class="lhalf">
         <div class="img-container flip-in-left">
-          <Image src="photo2.jpg" alt="Wildflower Event Center garden area" />
+          <Image src="./photo2.jpg" alt="Wildflower Event Center garden area" />
         </div>
       </div>
       <div class="rhalf">
@@ -128,58 +128,56 @@
         </p>
       </div>
     </div>
-      </div>
-      <div class="rhalf">
-        <p class="left">
-          followed by time at the <a
-            href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-            >Wildflower Event Center</a
-          >
-        </p>
+  </div>
+  <div class="rhalf">
+    <p class="left">
+      followed by time at the <a
+        href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+        >Wildflower Event Center</a
+      >
+    </p>
+  </div>
+
+  <div id="rsvp">
+    <p>we hope you can join us!</p>
+    <RsvpForm />
+  </div>
+
+  <div class="container" id="registry">
+    <div class="lhalf">
+      <p class="right">
+        if you want to <a href="">buy us something...</a>
+      </p>
+    </div>
+    <div class="rhalf">
+      <div class="img-container flip-in-right">
+        <Image src="photo1.jpg" alt="Wedding guest seating area" />
       </div>
     </div>
+  </div>
 
-    <div id="rsvp">
-      <p>we hope you can join us!</p>
-      <RsvpForm />
-    </div>
-
-    <div class="container" id="registry">
-      <div class="lhalf">
-        <p class="right">
-          if you want to <a href="">buy us something...</a>
-        </p>
-      </div>
-      <div class="rhalf">
-        <div class="img-container flip-in-right">
-          <Image src="photo1.jpg" alt="Wedding guest seating area" />
-        </div>
+  <div class="container" id="fun">
+    <div class="lhalf">
+      <div class="img-container flip-in-left">
+        <Image src="photo2.jpg" alt="Wedding reception dance floor" />
       </div>
     </div>
-
-    <div class="container" id="fun">
-      <div class="lhalf">
-        <div class="img-container flip-in-left">
-          <Image src="photo2.jpg" alt="Wedding reception dance floor" />
-        </div>
-      </div>
-      <div class="rhalf">
-        <p class="left">
-          or <a href="">request a song!</a>
-        </p>
-      </div>
+    <div class="rhalf">
+      <p class="left">
+        or <a href="">request a song!</a>
+      </p>
     </div>
+  </div>
 
-    <div class="container">
-      <div class="lhalf">
-        <p class="right">
-          or <a href="">see a cat pic!</a>
-        </p>
-      </div>
-      <div class="rhalf">
-        <div class="img-container flip-in-right">
-          <Image src="photo1.jpg" alt="Wedding cake or dessert table" />
-        </div>
+  <div class="container">
+    <div class="lhalf">
+      <p class="right">
+        or <a href="">see a cat pic!</a>
+      </p>
+    </div>
+    <div class="rhalf">
+      <div class="img-container flip-in-right">
+        <Image src="photo1.jpg" alt="Wedding cake or dessert table" />
       </div>
     </div>
   </div>

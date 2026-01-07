@@ -1,6 +1,4 @@
 <script>
-  import { base } from "$app/paths"
-
   export let src
   export let alt = ""
   export let quality = 80
@@ -9,7 +7,7 @@
   export let className = ""
 
   // Note: ${base}/${src}?quality=${quality} will work after enhanced-img setup
-  $: currentSrc = `${base}/${src}`
+  $: currentSrc = `${src}`
 
   let loaded = false
   let error = false
@@ -37,7 +35,7 @@
     </div>
   {/if}
 
-  <img
+  <enhanced:img
     src={currentSrc}
     {alt}
     loading={eager ? "eager" : loading}
