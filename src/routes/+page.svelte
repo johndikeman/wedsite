@@ -9,7 +9,6 @@
   import { onMount } from "svelte"
 
   import RsvpForm from "$lib/RsvpForm.svelte"
-  import Image from "$lib/Image.svelte"
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, TextPlugin)
   let scrollContainer
@@ -84,14 +83,22 @@
       </div>
       <div class="rhalf">
         <div class="img-container flip-in-right">
-          <Image src="photo1.jpg" alt="Wedding couple portrait" eager={true} />
+          <enhanced:img
+            src="/static/photo1.jpg?w=800;400&q=80"
+            alt="Wedding couple portrait"
+            loading="eager"
+          />
         </div>
       </div>
     </div>
     <div class="container">
       <div class="lhalf">
         <div class="img-container flip-in-left">
-          <Image src="photo2.jpg" alt="Wedding ceremony moment" />
+          <enhanced:img
+            src="/static/photo2.jpg?w=800;400&q=80"
+            alt="Wedding ceremony moment"
+            loading="lazy"
+          />
         </div>
       </div>
       <div class="rhalf"></div>
@@ -108,7 +115,11 @@
       </div>
       <div class="rhalf">
         <div class="img-container flip-in-right">
-          <Image src="./photo1.jpg" alt="St. Mary's Catholic Church exterior" />
+          <enhanced:img
+            src="/static/photo1.jpg?w=800;400&q=80"
+            alt="St. Mary's Catholic Church exterior"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -116,7 +127,11 @@
     <div class="container">
       <div class="lhalf">
         <div class="img-container flip-in-left">
-          <Image src="./photo2.jpg" alt="Wildflower Event Center garden area" />
+          <enhanced:img
+            src="/static/photo2.jpg?w=800;400&q=80"
+            alt="Wildflower Event Center garden area"
+            loading="lazy"
+          />
         </div>
       </div>
       <div class="rhalf">
@@ -151,7 +166,11 @@
     </div>
     <div class="rhalf">
       <div class="img-container flip-in-right">
-        <Image src="photo1.jpg" alt="Wedding guest seating area" />
+        <enhanced:img
+          src="/static/photo1.jpg?w=800;400&q=80"
+          alt="Wedding guest seating area"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>
@@ -159,7 +178,11 @@
   <div class="container" id="fun">
     <div class="lhalf">
       <div class="img-container flip-in-left">
-        <Image src="photo2.jpg" alt="Wedding reception dance floor" />
+        <enhanced:img
+          src="/static/photo2.jpg?w=800;400&q=80"
+          alt="Wedding reception dance floor"
+          loading="lazy"
+        />
       </div>
     </div>
     <div class="rhalf">
@@ -177,7 +200,11 @@
     </div>
     <div class="rhalf">
       <div class="img-container flip-in-right">
-        <Image src="photo1.jpg" alt="Wedding cake or dessert table" />
+        <enhanced:img
+          src="/static/photo1.jpg?w=800;400&q=80"
+          alt="Wedding cake or dessert table"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>
