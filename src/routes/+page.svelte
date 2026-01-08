@@ -12,6 +12,7 @@
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, TextPlugin)
   let scrollContainer
+  let smoother
 
   onMount(() => {
     const ctx = gsap.context((self) => {
@@ -45,13 +46,21 @@
         })
       })
 
-      ScrollSmoother.create({
+      smoother = ScrollSmoother.create({
         smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
         effects: true, // looks for data-speed and data-lag attributes on elements
         smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
       })
     }, scrollContainer)
   })
+
+  function scrollToSection(sectionId, e) {
+    e.preventDefault()
+    const target = document.getElementById(sectionId)
+    if (target && smoother) {
+      smoother.scrollTo(target, true, "top top")
+    }
+  }
   // navbar section stuff
   let activeSection = "top"
   const sections = {
@@ -70,7 +79,10 @@
         <a
           href="#{sectionId}"
           class:active={activeSection === sectionId}
-          on:click={() => (activeSection = sectionId)}
+          on:click={(e) => {
+            activeSection = sectionId
+            scrollToSection(sectionId, e)
+          }}
         >
           {sectionText}
         </a>
@@ -143,68 +155,60 @@
         </p>
       </div>
     </div>
-  </div>
-  <div class="rhalf">
-    <p class="left">
-      followed by time at the <a
-        href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-        >Wildflower Event Center</a
-      >
-    </p>
-  </div>
 
-  <div id="rsvp">
-    <p>we hope you can join us!</p>
-    <RsvpForm />
-  </div>
-
-  <div class="container" id="registry">
-    <div class="lhalf">
-      <p class="right">
-        if you want to <a href="">buy us something...</a>
-      </p>
+    <div id="rsvp">
+      <p>we hope you can join us!</p>
+      <RsvpForm />
     </div>
-    <div class="rhalf">
-      <div class="img-container flip-in-right">
-        <enhanced:img
-          src="/static/photo1.jpg?w=800;400&q=80"
-          alt="Wedding guest seating area"
-          loading="lazy"
-        />
+
+    <div class="container" id="registry">
+      <div class="lhalf">
+        <p class="right">
+          if you want to <a href="">buy us something...</a>
+        </p>
+      </div>
+      <div class="rhalf">
+        <div class="img-container flip-in-right">
+          <enhanced:img
+            src="/static/photo1.jpg?w=800;400&q=80"
+            alt="Wedding guest seating area"
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container" id="fun">
-    <div class="lhalf">
-      <div class="img-container flip-in-left">
-        <enhanced:img
-          src="/static/photo2.jpg?w=800;400&q=80"
-          alt="Wedding reception dance floor"
-          loading="lazy"
-        />
+    <div class="container" id="fun">
+      <div class="lhalf">
+        <div class="img-container flip-in-left">
+          <enhanced:img
+            src="/static/photo2.jpg?w=800;400&q=80"
+            alt="Wedding reception dance floor"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div class="rhalf">
+        <p class="left">
+          or <a href="">request a song!</a>
+        </p>
       </div>
     </div>
-    <div class="rhalf">
-      <p class="left">
-        or <a href="">request a song!</a>
-      </p>
-    </div>
-  </div>
 
-  <div class="container">
-    <div class="lhalf">
-      <p class="right">
-        or <a href="">see a cat pic!</a>
-      </p>
-    </div>
-    <div class="rhalf">
-      <div class="img-container flip-in-right">
-        <enhanced:img
-          src="/static/photo1.jpg?w=800;400&q=80"
-          alt="Wedding cake or dessert table"
-          loading="lazy"
-        />
+    <div class="container">
+      <div class="lhalf">
+        <p class="right">
+          or <a href="">see a cat pic!</a>
+        </p>
+      </div>
+      <div class="rhalf">
+        <div class="img-container flip-in-right">
+          <enhanced:img
+            src="/static/photo1.jpg?w=800;400&q=80"
+            alt="Wedding cake or dessert table"
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </div>
