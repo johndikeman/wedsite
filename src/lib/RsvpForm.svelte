@@ -3,6 +3,7 @@
 
   let formData = {
     name: "",
+    email: "",
     attending: "",
     adults: 0,
     kids: 0,
@@ -20,8 +21,15 @@
   })
 
   async function handleSubmit() {
-    if (!formData.name || !formData.attending) {
+    if (!formData.name || !formData.email || !formData.attending) {
       alert("Please fill in all required fields")
+      return
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      alert("Please enter a valid email address")
       return
     }
 
@@ -50,6 +58,7 @@
         },
         body: JSON.stringify({
           name: formData.name,
+          email: formData.email,
           attending: formData.attending,
           adults: formData.adults,
           kids: formData.kids,
@@ -66,6 +75,7 @@
         // Reset form after successful submission
         formData = {
           name: "",
+          email: "",
           attending: "",
           adults: 0,
           kids: 0,
@@ -93,6 +103,16 @@
         id="name"
         bind:value={formData.name}
         placeholder="Your name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        bind:value={formData.email}
+        placeholder="Your email address"
       />
     </div>
 

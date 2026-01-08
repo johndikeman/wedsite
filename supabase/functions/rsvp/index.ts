@@ -16,9 +16,11 @@ const corsHeaders = {
 // Define RSVP data interface based on the form
 interface RSVPData {
   name: string
+  email: string
   attending: string // "yes" or "no"
   adults: number
   kids: number
+  message?: string
 }
 
 console.log("RSVP function initialized")
@@ -35,13 +37,30 @@ Deno.serve(async (req) => {
     // Validate required fields
     if (
       !data.name ||
+      !data.email ||
       !data.attending ||
       (data.adults === undefined && data.kids === undefined)
     ) {
       return new Response(
         JSON.stringify({
           success: false,
-          error: "Missing required fields: name, attending, adults/kids counts",
+          error:
+            "Missing required fields: name, email, attending, adults/kids counts",
+        }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
+      )
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(data.email)) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: "Please enter a valid email address",
         }),
         {
           status: 400,
@@ -107,19 +126,16 @@ Deno.serve(async (req) => {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
-    // Format email as a placeholder (no email in form, so use name-based)
-    const emailPlaceholder = `${data.name.toLowerCase().replace(/\s+/g, ".")}@rsvp.wedding`
-
     // Insert RSVP into database
     const { data: result, error } = await supabase
       .from("rsvp_responses")
       .insert({
         name: data.name.trim(),
-        email: emailPlaceholder,
+        email: data.email.trim().toLowerCase(),
         attending: isAttending,
         adults: isAttending ? data.adults : 0,
         kids: isAttending ? data.kids : 0,
-        message: null,
+        message: data.message || null,
       })
       .select()
       .single()
@@ -127,7 +143,7 @@ Deno.serve(async (req) => {
     if (error) {
       console.error("Database error:", error)
 
-      // Check for duplicate email (if needed)
+      // Check for duplicate email
       if (error.code === "23505") {
         // unique violation
         return new Response(
