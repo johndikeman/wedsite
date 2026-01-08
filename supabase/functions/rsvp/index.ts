@@ -33,16 +33,20 @@ Deno.serve(async (req) => {
     const data: RSVPData = await req.json()
 
     // Validate required fields
-    if (!data.name || !data.attending || (data.adults === undefined && data.kids === undefined)) {
+    if (
+      !data.name ||
+      !data.attending ||
+      (data.adults === undefined && data.kids === undefined)
+    ) {
       return new Response(
         JSON.stringify({
           success: false,
-          error: "Missing required fields: name, attending, adults/kids counts"
+          error: "Missing required fields: name, attending, adults/kids counts",
         }),
         {
           status: 400,
-          headers: { ...corsHeaders, "Content-Type": "application/json" }
-        }
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
       )
     }
 
@@ -51,12 +55,12 @@ Deno.serve(async (req) => {
       return new Response(
         JSON.stringify({
           success: false,
-          error: "attending must be 'yes' or 'no'"
+          error: "attending must be 'yes' or 'no'",
         }),
         {
           status: 400,
-          headers: { ...corsHeaders, "Content-Type": "application/json" }
-        }
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
       )
     }
 
@@ -65,12 +69,12 @@ Deno.serve(async (req) => {
       return new Response(
         JSON.stringify({
           success: false,
-          error: "Counts cannot be negative"
+          error: "Counts cannot be negative",
         }),
         {
           status: 400,
-          headers: { ...corsHeaders, "Content-Type": "application/json" }
-        }
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
       )
     }
 
@@ -83,46 +87,7 @@ Deno.serve(async (req) => {
       return new Response(
         JSON.stringify({
           success: false,
-          error: "If attending, must have at least 1 guest"
-        }),
-        {
-          status: 400,
-          headers: { ...corsHeaders, "Content-Type": "application/json" }
-        }
-      )
-    }
-
-console.log("RSVP function initialized")
-
-Deno.serve(async (req) => {
-  // Handle CORS preflight requests
-  if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders })
-  }
-
-  try {
-    const data: RSVPData = await req.json()
-
-    // Validate required fields
-    if (!data.name || !data.email || typeof data.attending !== "boolean") {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: "Missing required fields: name, email, attending",
-        }),
-        {
-          status: 400,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        },
-      )
-    }
-
-    // Validate guests count
-    if (data.guests_count < 1) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: "guests_count must be at least 1",
+          error: "If attending, must have at least 1 guest",
         }),
         {
           status: 400,
@@ -143,8 +108,8 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
     // Format email as a placeholder (no email in form, so use name-based)
-    const emailPlaceholder = `${data.name.toLowerCase().replace(/\s+/g, '.')}@rsvp.wedding`
-    
+    const emailPlaceholder = `${data.name.toLowerCase().replace(/\s+/g, ".")}@rsvp.wedding`
+
     // Insert RSVP into database
     const { data: result, error } = await supabase
       .from("rsvp_responses")
@@ -152,9 +117,9 @@ Deno.serve(async (req) => {
         name: data.name.trim(),
         email: emailPlaceholder,
         attending: isAttending,
-        guests_count: isAttending ? totalGuests : 1,
-        dietary_restrictions: null,
-        message: null
+        adults: isAttending ? data.adults : 0,
+        kids: isAttending ? data.kids : 0,
+        message: null,
       })
       .select()
       .single()
@@ -189,7 +154,9 @@ Deno.serve(async (req) => {
       )
     }
 
-    console.log(`RSVP saved for ${data.name}: attending=${isAttending}, guests=${totalGuests}`)
+    console.log(
+      `RSVP saved for ${data.name}: attending=${isAttending}, guests=${totalGuests}`,
+    )
 
     // Return success response
     return new Response(
@@ -198,7 +165,7 @@ Deno.serve(async (req) => {
         message: isAttending
           ? `Thank you for confirming your attendance, ${data.name}! We've registered ${totalGuests} guest(s).`
           : "We're sorry you can't make it, but thank you for letting us know!",
-        data: result
+        data: result,
       }),
       {
         status: 201,
