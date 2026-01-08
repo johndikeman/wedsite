@@ -450,9 +450,18 @@
     float: left;
   }
 
+  #rsvp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 100%;
+  }
   #rsvp p {
-    margin-left: 5rem;
-    margin-right: 5rem;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
   }
   .img-container img {
     height: 100%;

@@ -6,6 +6,7 @@
     attending: "",
     adults: 0,
     kids: 0,
+    message: "",
   }
 
   let submitting = false
@@ -52,6 +53,7 @@
           attending: formData.attending,
           adults: formData.adults,
           kids: formData.kids,
+          message: formData.message,
         }),
       })
 
@@ -67,6 +69,7 @@
           attending: "",
           adults: 0,
           kids: 0,
+          message: "",
         }
       } else {
         submitError = result.error || "Failed to submit RSVP"
@@ -119,6 +122,16 @@
       </div>
     {/if}
 
+    <div class="form-group">
+      <label for="message">Message (Optional)</label>
+      <textarea
+        id="message"
+        bind:value={formData.message}
+        placeholder="Leave a message for the couple..."
+        rows="4"
+      />
+    </div>
+
     <button on:click={handleSubmit} disabled={submitting}>
       {submitting ? "Submitting..." : "Submit RSVP"}
     </button>
@@ -147,10 +160,11 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    background: white;
+    background: #fff5f7;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(60, 20, 25, 0.1);
+    border: 1px solid #f8d7da;
   }
 
   .form-group {
@@ -162,21 +176,34 @@
   label {
     font-weight: 600;
     font-size: 0.9rem;
+    color: #3c1419;
+    font-family: "Cartograph CF", serif;
+    font-style: italic;
   }
 
   input[type="text"],
-  input[type="number"] {
+  input[type="number"],
+  textarea {
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid #d9a2a9;
     border-radius: 4px;
     font-size: 1rem;
-    font-family: inherit;
+    font-family: "Cartograph CF", serif;
+    font-style: italic;
+    background: #fff;
+    color: #3c1419;
+  }
+
+  textarea {
+    resize: vertical;
   }
 
   input[type="text"]:focus,
-  input[type="number"]:focus {
+  input[type="number"]:focus,
+  textarea:focus {
     outline: none;
-    border-color: #4a90e2;
+    border-color: #c97a84;
+    box-shadow: 0 0 0 2px rgba(201, 122, 132, 0.2);
   }
 
   .radio-group {
@@ -198,18 +225,20 @@
 
   button {
     padding: 0.75rem 2rem;
-    background: #4a90e2;
-    color: white;
+    background: #c97a84;
+    color: #fff5f7;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
+    font-family: "Cartograph CF", serif;
+    font-style: italic;
   }
 
   button:hover:not(:disabled) {
-    background: #357abd;
+    background: #b36771;
   }
 
   button:active:not(:disabled) {
