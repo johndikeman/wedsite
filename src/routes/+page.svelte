@@ -202,6 +202,18 @@
 </div>
 
 <style>
+  :root {
+    --sunflower: #e0b451;
+    --peach: #ee9452;
+    --softestpink: #d39ba0;
+    --velvetblue: #d39ba0;
+    --greenforests: #a0aa74;
+    --blanketscarlet: #ea4753;
+    --blanketyellow: #f0f067;
+    --eggshell: #f0ead6;
+    --offblack: #12100f;
+  }
+
   /* Regular */
   @font-face {
     font-family: "Cartograph CF";
