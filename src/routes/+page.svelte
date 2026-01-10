@@ -424,12 +424,11 @@
     font-family: "Cartograph CF", serif;
     font-style: italic;
     font-weight: 600;
-    background: #f5f5f5;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #ffe9ec;
-    color: #3c1419;
+    background-color: var(--eggshell);
+    color: var(--offblack);
   }
 
   .img-container {

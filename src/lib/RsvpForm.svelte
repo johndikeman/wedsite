@@ -180,11 +180,11 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    background: #fff5f7;
+    background-color: hsl(from var(--sunflower) h s calc(l + 20));
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(60, 20, 25, 0.1);
-    border: 1px solid #f8d7da;
+    box-shadow: 0 2px 10px hsl(from var(--sunflower) h s calc(l + 10));
+    border: 1px solid hsl(from var(--sunflower) h s calc(l - 10));
   }
 
   .form-group {
