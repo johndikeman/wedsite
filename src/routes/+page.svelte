@@ -89,7 +89,6 @@
         </a>
       {/each}
     </nav>
-    <!--- ALL YOUR CONTENT HERE --->
     <div class="container" id="top">
       <div class="lhalf">
         <p class="right">hey! we are getting married :)</p>
@@ -108,32 +107,25 @@
       <div class="lhalf">
         <div class="img-container flip-in-left">
           <enhanced:img
-            src="/static/photo2.jpg?w=800;400&q=80"
-            alt="Wedding ceremony moment"
-            loading="lazy"
-          />
-        </div>
-      </div>
-      <div class="rhalf"></div>
-    </div>
-
-    <div class="container" id="faq">
-      <div class="lhalf">
-        <p class="right">
-          Ceremony is at <a
-            href="https://www.google.com/maps/dir//14711+Ranch+Rd+12,+Wimberley,+TX+78676/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5dd9037f83b3:0xb650420cc3f03760!2m2!1d-98.1032852!2d30.0062927?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-            >St. Mary's Catholic Church, Wimberley</a
-          > at 2pm
-        </p>
-      </div>
-      <div class="rhalf">
-        <div class="img-container flip-in-right">
-          <enhanced:img
             src="/static/photo1.jpg?w=800;400&q=80"
             alt="St. Mary's Catholic Church exterior"
             loading="lazy"
           />
         </div>
+      </div>
+      <div class="rhalf">
+        <p class="left">
+          Ceremony is at <a
+            href="https://www.google.com/maps/dir//14711+Ranch+Rd+12,+Wimberley,+TX+78676/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5dd9037f83b3:0xb650420cc3f03760!2m2!1d-98.1032852!2d30.0062927?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+            >St. Mary's Catholic Church, Wimberley</a
+          > at 2pm
+        </p>
+        <p class="left">
+          followed by time at the <a
+            href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&amp;g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+            >Wildflower Event Center</a
+          >
+        </p>
       </div>
     </div>
 
@@ -147,14 +139,7 @@
           />
         </div>
       </div>
-      <div class="rhalf">
-        <p class="left">
-          followed by time at the <a
-            href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&amp;g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-            >Wildflower Event Center</a
-          >
-        </p>
-      </div>
+      <div class="rhalf"></div>
     </div>
 
     <div id="rsvp">
