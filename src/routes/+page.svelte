@@ -9,6 +9,7 @@
   import { onMount } from "svelte"
 
   import RsvpForm from "$lib/RsvpForm.svelte"
+  import SongRequestForm from "$lib/SongRequestForm.svelte"
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, TextPlugin)
   let scrollContainer
@@ -189,9 +190,10 @@
         </div>
       </div>
       <div class="rhalf">
-        <p class="left">
-          or <a href="">request a song!</a>
-        </p>
+        <p class="left">request a song!</p>
+        <div class="song-request-wrapper">
+          <SongRequestForm />
+        </div>
       </div>
     </div>
 
@@ -480,5 +482,11 @@
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 10%;
+  }
+
+  .song-request-wrapper {
+    margin-top: 2rem;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 </style>
