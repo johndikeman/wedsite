@@ -1,6 +1,12 @@
-- install supabase
+x install supabase
 - more detailed faq component/information
-- actual pictures
+x actual pictures
+	- 98
+	- 140
+	- 13
+	- 56
+	- 72
+	- 172
 - colored separators(?)
 - registry copy + target
 - desktop image scale
@@ -10,4 +16,5 @@
 - ensure font is available
 - deployment
 - cat pic feature
+- random pictures every time?
 - song player component

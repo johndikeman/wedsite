@@ -96,8 +96,8 @@
       <div class="rhalf">
         <div class="img-container flip-in-right">
           <enhanced:img
-            src="/static/photo1.jpg?w=800;400&q=80"
-            alt="Wedding couple portrait"
+            src="/static/ep/jjfinal-98.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
             loading="eager"
           />
         </div>
@@ -107,8 +107,8 @@
       <div class="lhalf">
         <div class="img-container flip-in-left">
           <enhanced:img
-            src="/static/photo1.jpg?w=800;400&q=80"
-            alt="St. Mary's Catholic Church exterior"
+            src="/static/ep/jjfinal-140.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
             loading="lazy"
           />
         </div>
@@ -133,8 +133,8 @@
       <div class="lhalf">
         <div class="img-container flip-in-left">
           <enhanced:img
-            src="/static/photo2.jpg?w=800;400&q=80"
-            alt="Wildflower Event Center garden area"
+            src="/static/ep/jjfinal-13.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
             loading="lazy"
           />
         </div>
@@ -156,8 +156,8 @@
       <div class="rhalf">
         <div class="img-container flip-in-right">
           <enhanced:img
-            src="/static/photo1.jpg?w=800;400&q=80"
-            alt="Wedding guest seating area"
+            src="/static/ep/jjfinal-56.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
             loading="lazy"
           />
         </div>
@@ -168,8 +168,8 @@
       <div class="lhalf">
         <div class="img-container flip-in-left">
           <enhanced:img
-            src="/static/photo2.jpg?w=800;400&q=80"
-            alt="Wedding reception dance floor"
+            src="/static/ep/jjfinal-72.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
             loading="lazy"
           />
         </div>
@@ -191,8 +191,8 @@
       <div class="rhalf">
         <div class="img-container flip-in-right">
           <enhanced:img
-            src="/static/photo1.jpg?w=800;400&q=80"
-            alt="Wedding cake or dessert table"
+            src="/static/ep/jjfinal-172.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
             loading="lazy"
           />
         </div>
