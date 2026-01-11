@@ -246,10 +246,11 @@
       </div>
       <div class="rhalf">
         <p class="left">request a song!</p>
-        <div class="song-request-wrapper">
-          <SongRequestForm />
-        </div>
       </div>
+    </div>
+
+    <div id="song-request">
+      <SongRequestForm />
     </div>
 
     <div class="container">
@@ -526,7 +527,8 @@
     float: left;
   }
 
-  .rsvp-container {
+  .rsvp-container,
+  #song-request {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -556,11 +558,5 @@
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 10%;
-  }
-
-  .song-request-wrapper {
-    margin-top: 2rem;
-    padding-left: 5%;
-    padding-right: 5%;
   }
 </style>
