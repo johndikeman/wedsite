@@ -71,6 +71,13 @@
     registry: "registry",
     fun: "fun",
   }
+  const sectionColors = {
+    faq: "sunflower",
+    rsvp: "peach",
+    top: "softestpink",
+    registry: "velvetblue",
+    fun: "greenforests",
+  }
 </script>
 
 <div id="smooth-wrapper">
@@ -79,6 +86,7 @@
       {#each Object.entries(sections) as [sectionId, sectionText]}
         <a
           href="#{sectionId}"
+          class={sectionColors[sectionId]}
           class:active={activeSection === sectionId}
           on:click={(e) => {
             activeSection = sectionId
@@ -130,7 +138,8 @@
     </div>
     <hr />
 
-    <h1 id="faq">faq</h1>
+    <h1 id="faq" class={sectionColors["faq"]}>faq</h1>
+
     <div class="container">
       <div class="lhalf">
         <div class="img-container flip-in-left">
@@ -150,24 +159,28 @@
         <p class="question">
           I have a food allergy, can I make a special request?
         </p>
-        <p class="answer">grow up. call us with the details though.</p>
+        <p class="answer">
+          leave us a message in the <a href="#rsvp">rsvp</a>!
+        </p>
       </div>
     </div>
 
     <div class="container">
       <div class="lhalf">
         <p class="question">What should I wear?</p>
-        <p class="answer">
-          in:<br />
-          vibrant and colorful,<br />
-          dressing to your comfort level,<br />
-          the liminal space between cocktail and casual,<br />
+        <p class="answer">in:</p>
+        <ul class="answer">
+          <li>vibrant and colorful,<br /></li>
+          <li>dressing to your comfort level,<br /></li>
+          <li>the liminal space between cocktail and casual,<br /></li>
+        </ul>
 
-          out:<br />
-          blue jeans,<br />
-          heels when you want to wear flats,<br />
-          holding back on color<br />
-        </p>
+        <p class="answer">out:</p>
+        <ul class="answer">
+          <li>blue jeans,<br /></li>
+          <li>heels when you want to wear flats,<br /></li>
+          <li>holding back on color<br /></li>
+        </ul>
       </div>
 
       <div class="rhalf">
@@ -197,7 +210,6 @@
           we know this is rich coming from Jess, but please arrive no later than
           2:55. our early bird guests may arrive as early as 2:30.
         </p>
-
         <p class="question">Are kids welcome?</p>
         <p class="answer">
           sure, but the rowdy and unattended will be put to work on the farm, so
@@ -207,14 +219,14 @@
     </div>
 
     <hr />
-    <h1 id="rsvp">rsvp</h1>
+    <h1 class={sectionColors["rsvp"]} id="rsvp">rsvp</h1>
     <div class="rsvp-container">
       <p>we hope you can join us!</p>
       <RsvpForm />
     </div>
 
     <hr />
-    <h1 id="registry">registry</h1>
+    <h1 class={sectionColors["registry"]} id="registry">registry</h1>
     <div class="container">
       <div class="lhalf">
         <p class="right">
@@ -233,7 +245,7 @@
     </div>
 
     <hr />
-    <h1 id="fun">fun</h1>
+    <h1 class={sectionColors["fun"]} id="fun">fun</h1>
     <div class="container">
       <div class="lhalf">
         <div class="img-container flip-in-left">
@@ -277,7 +289,7 @@
     --sunflower: #e0b451;
     --peach: #ee9452;
     --softestpink: #d39ba0;
-    --velvetblue: #d39ba0;
+    --velvetblue: #777e88;
     --greenforests: #a0aa74;
     --blanketscarlet: #ea4753;
     --blanketyellow: #f0f067;
@@ -446,11 +458,53 @@
   hr {
     width: 80%;
     border: none;
-    border-top: 1px solid var(--sunflower);
-
+    border-top: 1px solid var(--softestpink);
     margin: 20px auto;
   }
+  h1 {
+    letter-spacing: -0.1rem;
+    padding-left: 2%;
+  }
 
+  .offblack {
+    color: var(--offblack);
+  }
+  .eggshell {
+    color: var(--eggshell);
+  }
+  .blanketyellow {
+    color: var(--blanketyellow);
+  }
+  .blanketscarlet {
+    color: var(--blanketscarlet);
+  }
+  .greenforests {
+    color: var(--greenforests);
+  }
+  .velvetblue {
+    color: var(--velvetblue);
+  }
+  .softestpink {
+    color: var(--softestpink);
+  }
+  .peach {
+    color: var(--peach);
+  }
+  .sunflower {
+    color: var(--sunflower);
+  }
+
+  .question {
+    font-weight: 400;
+  }
+
+  .answer {
+    font-size: 0.9rem;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
   a {
     color: inherit; /* inherit text color from parent */
     cursor: pointer;
@@ -480,7 +534,7 @@
     padding-right: 5%;
     margin-bottom: 5%;
     padding-top: 5%;
-    font-weight: 200;
+    font-weight: 600;
   }
   nav a {
     display: flex;
@@ -502,7 +556,9 @@
   :global(body) {
     font-family: "Cartograph CF", serif;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 200;
+    font-size: 1.1rem;
+    letter-spacing: -1px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -511,7 +567,7 @@
   }
 
   .img-container {
-    height: 50%;
+    height: 70%;
     aspect-ratio: 0.75;
     display: flex;
     position: relative;
@@ -557,6 +613,6 @@
   .container p {
     padding-left: 5%;
     padding-right: 5%;
-    padding-top: 10%;
+    padding-top: 5%;
   }
 </style>
