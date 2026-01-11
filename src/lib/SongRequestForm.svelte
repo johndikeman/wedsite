@@ -60,7 +60,7 @@
 
 <div class="form-wrapper">
   <div class="form-container">
-    <div class="form-group">
+    <div class="form-group blanketscarlet">
       <label for="songTitle">Song Title</label>
       <input
         type="text"
@@ -89,20 +89,58 @@
 </div>
 
 <style>
+  .offblack {
+    color: var(--offblack);
+  }
+  .eggshell {
+    color: var(--eggshell);
+  }
+  .blanketyellow {
+    color: var(--blanketyellow);
+    --bordercolor: var(--blanketyellow);
+  }
+  .blanketscarlet {
+    color: var(--blanketscarlet);
+    --bordercolor: var(--blanketscarlet);
+  }
+  .greenforests {
+    color: var(--greenforests);
+    --bordercolor: var(--greenforests);
+  }
+  .velvetblue {
+    color: var(--velvetblue);
+    --bordercolor: var(--velvetblue);
+  }
+  .softestpink {
+    color: var(--softestpink);
+    --bordercolor: var(--softestpink);
+  }
+  .peach {
+    color: var(--peach);
+    --bordercolor: var(--peach);
+  }
+  .sunflower {
+    color: hsl(from var(--sunflower) h s calc(l - 10));
+    --bordercolor: var(--sunflower);
+  }
+
   .form-wrapper {
     max-width: 500px;
     padding: 2rem;
   }
 
   .form-container {
+    --bordercolor: hsl(from var(--greenforests) h s calc(l - 10));
+    --buttoncolor: var(--greenforests);
+    --formbg: hsl(from var(--greenforests) h s calc(l + 25));
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    background: #fff5f7;
+    background-color: var(--formbg);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(60, 20, 25, 0.1);
-    border: 1px solid #f8d7da;
+    box-shadow: 0 2px 10px hsl(from var(--bordercolor) h s calc(l + 10));
+    border: 1px solid var(--bordercolor);
   }
 
   .form-group {
@@ -114,31 +152,31 @@
   label {
     font-weight: 600;
     font-size: 0.9rem;
-    color: #3c1419;
+    color: inherit;
     font-family: "Cartograph CF", serif;
     font-style: italic;
   }
 
   input[type="text"] {
     padding: 0.75rem;
-    border: 1px solid #d9a2a9;
+    border: 1px solid var(--bordercolor);
     border-radius: 4px;
     font-size: 1rem;
     font-family: "Cartograph CF", serif;
     font-style: italic;
-    background: #fff;
-    color: #3c1419;
+    background: hsl(from var(--formbg) h s calc(l + 10));
+    color: inherit;
   }
 
   input[type="text"]:focus {
     outline: none;
-    border-color: #c97a84;
+    border-color: var(--bordercolor);
     box-shadow: 0 0 0 2px rgba(201, 122, 132, 0.2);
   }
 
   button {
     padding: 0.75rem 2rem;
-    background: #c97a84;
+    background: var(--buttoncolor);
     color: #fff5f7;
     border: none;
     border-radius: 4px;
@@ -151,7 +189,7 @@
   }
 
   button:hover:not(:disabled) {
-    background: #b36771;
+    background: hsl(from var(--buttoncolor) h s calc(l - 10));
   }
 
   button:active:not(:disabled) {
