@@ -131,8 +131,8 @@
         <p class="left">
           followed by time at the <a
             href="https://www.google.com/maps/dir//900+Ranch+to+Market+32,+San+Marcos,+TX+78666/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5fa5af3fc113:0x99967aa00b6905e5!2m2!1d-98.1030273!2d29.9426193?entry=ttu&amp;g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-            >Wildflower Event Center</a
-          >
+            >the Wildflower
+          </a> in Wimberley at 3:30pm.
         </p>
       </div>
     </div>
@@ -212,8 +212,7 @@
         </p>
         <p class="question">Are kids welcome?</p>
         <p class="answer">
-          sure, but the rowdy and unattended will be put to work on the farm, so
-          watch out
+          yes, but the rowdy will be put to work on the farm, so watch out
         </p>
       </div>
     </div>
