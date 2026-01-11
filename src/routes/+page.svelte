@@ -26,7 +26,7 @@
           duration: 1,
           scrollTrigger: {
             trigger: fil,
-            start: "bottom 90%",
+            start: "top 85%",
             toggleActions: "play reverse play reverse",
           },
         })
@@ -41,7 +41,7 @@
           duration: 1,
           scrollTrigger: {
             trigger: fir,
-            start: "bottom 90%",
+            start: "top 85%",
             toggleActions: "play reverse play reverse",
           },
         })
