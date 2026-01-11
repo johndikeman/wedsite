@@ -128,6 +128,58 @@
         </p>
       </div>
     </div>
+    <hr />
+
+    <h1 id="faq">faq</h1>
+    <div class="container">
+      <div class="lhalf">
+        <div class="img-container flip-in-left">
+          <enhanced:img
+            src="/static/ep/jjfinal-13.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div class="rhalf">
+        <p class="question">When should I RSVP by?</p>
+        <p class="answer">
+          let us know to save you a seat no later than April 16, pretty please!
+        </p>
+
+        <p class="question">
+          I have a food allergy, can I make a special request?
+        </p>
+        <p class="answer">grow up. call us with the details though.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="lhalf">
+        <p class="question">What should I wear?</p>
+        <p class="answer">
+          in:<br />
+          vibrant and colorful,<br />
+          dressing to your comfort level,<br />
+          the liminal space between cocktail and casual,<br />
+
+          out:<br />
+          blue jeans,<br />
+          heels when you want to wear flats,<br />
+          holding back on color<br />
+        </p>
+      </div>
+
+      <div class="rhalf">
+        <div class="img-container flip-in-right">
+          <enhanced:img
+            src="/static/ep/jjfinal-13.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
 
     <div class="container">
       <div class="lhalf">
@@ -139,18 +191,34 @@
           />
         </div>
       </div>
-      <div class="rhalf"></div>
+      <div class="rhalf">
+        <p class="question">What time should I arrive at the ceremony?</p>
+        <p class="answer">
+          we know this is rich coming from Jess, but please arrive no later than
+          2:55. our early bird guests may arrive as early as 2:30.
+        </p>
+
+        <p class="question">Are kids welcome?</p>
+        <p class="answer">
+          sure, but the rowdy and unattended will be put to work on the farm, so
+          watch out
+        </p>
+      </div>
     </div>
 
-    <div id="rsvp">
+    <hr />
+    <h1 id="rsvp">rsvp</h1>
+    <div class="rsvp-container">
       <p>we hope you can join us!</p>
       <RsvpForm />
     </div>
 
-    <div class="container" id="registry">
+    <hr />
+    <h1 id="registry">registry</h1>
+    <div class="container">
       <div class="lhalf">
         <p class="right">
-          if you want to <a href="">buy us something...</a>
+          <a href="">coming soon!</a>
         </p>
       </div>
       <div class="rhalf">
@@ -164,7 +232,9 @@
       </div>
     </div>
 
-    <div class="container" id="fun">
+    <hr />
+    <h1 id="fun">fun</h1>
+    <div class="container">
       <div class="lhalf">
         <div class="img-container flip-in-left">
           <enhanced:img
@@ -372,6 +442,14 @@
     font-display: swap;
   }
 
+  hr {
+    width: 80%;
+    border: none;
+    border-top: 1px solid var(--sunflower);
+
+    margin: 20px auto;
+  }
+
   a {
     color: inherit; /* inherit text color from parent */
     cursor: pointer;
@@ -448,7 +526,7 @@
     float: left;
   }
 
-  #rsvp {
+  .rsvp-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -456,7 +534,7 @@
     margin: 0 auto;
     max-width: 100%;
   }
-  #rsvp p {
+  .rsvp-container p {
     margin-left: 0;
     margin-right: 0;
     text-align: center;
