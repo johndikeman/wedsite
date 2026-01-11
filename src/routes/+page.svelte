@@ -186,7 +186,7 @@
       <div class="rhalf">
         <div class="img-container flip-in-right">
           <enhanced:img
-            src="/static/ep/jjfinal-13.jpg?w=800;400&q=80"
+            src="/static/ep/jjfinal-172.jpg?w=800;400&q=80"
             alt="cute pic of us loading..."
             loading="lazy"
           />
@@ -198,7 +198,7 @@
       <div class="lhalf">
         <div class="img-container flip-in-left">
           <enhanced:img
-            src="/static/ep/jjfinal-13.jpg?w=800;400&q=80"
+            src="/static/ep/jjfinal-27.jpg?w=800;400&q=80"
             alt="cute pic of us loading..."
             loading="lazy"
           />
