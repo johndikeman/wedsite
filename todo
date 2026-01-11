@@ -1,5 +1,6 @@
 x install supabase
-- more detailed faq component/information
+x more detailed faq component/information
+- text styling faq
 x actual pictures
 	- 98
 	- 140
@@ -10,7 +11,8 @@ x actual pictures
 - colored separators(?)
 - text kerning
 - registry copy + target
-- deployment
+x deployment
+x deploy supabase and test in prod
 - desktop image scale
 - desktop form scaling
 - finalize colors
