@@ -104,7 +104,7 @@
       <div class="rhalf">
         <div class="img-container flip-in-right">
           <enhanced:img
-            src="/static/ep/jjfinal-98.jpg?w=800;400&q=80"
+            src="/static/ep/jjfinal-56.jpg?w=800;400&q=80"
             alt="cute pic of us loading..."
             loading="eager"
           />
@@ -235,7 +235,7 @@
       <div class="rhalf">
         <div class="img-container flip-in-right">
           <enhanced:img
-            src="/static/ep/jjfinal-56.jpg?w=800;400&q=80"
+            src="/static/ep/jjfinal-98.jpg?w=800;400&q=80"
             alt="cute pic of us loading..."
             loading="lazy"
           />
