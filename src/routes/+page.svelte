@@ -264,23 +264,6 @@
     <div id="song-request">
       <SongRequestForm />
     </div>
-
-    <div class="container">
-      <div class="lhalf">
-        <p class="right">
-          or <a href="">see a cat pic!</a>
-        </p>
-      </div>
-      <div class="rhalf">
-        <div class="img-container flip-in-right">
-          <enhanced:img
-            src="/static/ep/jjfinal-172.jpg?w=800;400&q=80"
-            alt="cute pic of us loading..."
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
