@@ -208,7 +208,7 @@
         <p class="question">What time should I arrive at the ceremony?</p>
         <p class="answer">
           we know this is rich coming from Jess, but please arrive no later than
-          2:55. our early bird guests may arrive as early as 2:30.
+          1:55. our early bird guests may arrive as early as 1:30.
         </p>
         <p class="question">Are kids welcome?</p>
         <p class="answer">
@@ -452,7 +452,7 @@
   hr {
     width: 80%;
     border: none;
-    border-top: 1px solid var(--softestpink);
+    border-top: 1px solid hsl(from var(--softestpink) h s l / 0.5);
     margin: 20px auto;
   }
   h1 {
@@ -538,6 +538,7 @@
   .rhalf {
     flex: 1;
     align-content: center;
+    padding-right: 0.5rem;
   }
 
   .left {
@@ -596,6 +597,7 @@
     width: auto;
     object-fit: cover;
     z-index: -1;
+    border-radius: 5px;
   }
 
   .container {
