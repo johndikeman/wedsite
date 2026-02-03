@@ -126,7 +126,7 @@
           Ceremony is at <a
             href="https://www.google.com/maps/dir//14711+Ranch+Rd+12,+Wimberley,+TX+78676/@30.4613453,-97.3084708,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b5dd9037f83b3:0xb650420cc3f03760!2m2!1d-98.1032852!2d30.0062927?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
             >St. Mary's Catholic Church, Wimberley</a
-          > at 2pm
+          > on May 16th, 2pm
         </p>
         <p class="left">
           followed by time at the <a
