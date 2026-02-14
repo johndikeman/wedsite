@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite build && vite preview",
-    "deploy": "gh-pages -d build --nojekyll"
+    "deploy": "gh-pages -d build --nojekyll --cname johnjesswedsite.org"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
