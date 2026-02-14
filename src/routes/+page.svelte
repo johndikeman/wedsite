@@ -262,7 +262,10 @@
     <div class="container">
       <div class="lhalf">
         <p class="right">
-          <a href="">coming soon!</a>
+          <a href="https://www.zola.com/registry/jessandjohndikeman"
+            >thank you for thinking of us! gifts are deeply appreciated and not
+            expected.</a
+          >
         </p>
       </div>
       <div class="rhalf">
