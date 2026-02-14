@@ -217,6 +217,39 @@
       </div>
     </div>
 
+    <div class="container">
+      <div class="lhalf">
+        <p class="question">Where should I stay?</p>
+        <p class="answer">we recommend these spots:</p>
+        <ul class="answer">
+          <li>
+            <a href="https://blairhouseinn.com/">Blair House Inn</a><br />
+          </li>
+          <li>
+            <a href="https://hotelfloraandfauna.com/">Hotel Flora and Fauna</a
+            ><br />
+          </li>
+          <li>
+            <a href="https://wimberleysquareinn.com/">Wimberley Square Inn</a
+            ><br />
+          </li>
+          <li>
+            <a href="https://wimberleyinn.com/">Wimberley Inn + bar</a><br />
+          </li>
+        </ul>
+      </div>
+
+      <div class="rhalf">
+        <div class="img-container flip-in-right">
+          <enhanced:img
+            src="/static/ep/jjfinal-50.jpg?w=800;400&q=80"
+            alt="cute pic of us loading..."
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
     <hr />
     <h1 class={sectionColors["rsvp"]} id="rsvp">rsvp</h1>
     <div class="rsvp-container">
