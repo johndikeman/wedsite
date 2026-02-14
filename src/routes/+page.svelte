@@ -234,7 +234,7 @@
             ><br />
           </li>
           <li>
-            <a href="https://wimberleyinn.com/">Wimberley Inn + bar</a><br />
+            <a href="https://wimberleyinn.com/">Wimberley Inn + Bar</a><br />
           </li>
         </ul>
       </div>
